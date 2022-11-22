@@ -37,7 +37,9 @@ ListTile CauinArticleItemToListTile(
             Icon(Icons.article, size: 16, color: Colors.transparent)
         ][0],
       ),
-      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Flexible(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(item.title,
             style: titleStyle,
             overflow: TextOverflow.ellipsis,
@@ -108,7 +110,7 @@ ListTile CauinArticleItemToListTile(
                       .toList())
           ],
         )
-      ])
+      ])),
     ]),
   );
 }
