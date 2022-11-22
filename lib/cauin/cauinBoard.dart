@@ -54,13 +54,26 @@ class CauinBoard {
       CauinBoard.studyAndAcademicAffairs()
     ];
 
+    // Fixes a bug when categoryName is an empty string
+    if (categoryName == "") {
+      categoryName = null;
+    }
+
     for (final board in boards) {
-      if (board.tableName == tableName && board.category == categoryName) {
-        return board.displayName;
+      if (board.tableName == tableName) {
+        if (tableName == "cate42") {
+          if (board.category == categoryName) {
+            return board.displayName;
+          } else {
+            continue;
+          }
+        } else {
+          return board.displayName;
+        }
       }
     }
 
-    throw Exception('Not found');
+    throw Exception('Board displayName not found');
   }
 
   String? get category => _category;
