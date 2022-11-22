@@ -154,12 +154,19 @@ class CauinSession {
                 .text!,
             author: author,
             isReply: isReply,
-            likes: int.parse(
-                li.querySelector('button.etcbtn.recomend > em')!.text.trim()),
-            dislikes: int.parse(li
-                .querySelector('button.etcbtn.nonerecomend > em')!
-                .text
-                .trim()),
+            likes: li.querySelector('button.etcbtn.recomend > em') != null
+                ? int.parse(li
+                    .querySelector('button.etcbtn.recomend > em')!
+                    .text
+                    .trim())
+                : 0,
+            dislikes:
+                li.querySelector('button.etcbtn.nonerecomend > em') != null
+                    ? int.parse(li
+                        .querySelector('button.etcbtn.nonerecomend > em')!
+                        .text
+                        .trim())
+                    : 0,
             commentedAt: commentedAt,
             replyDepth: int.parse(replyDepthAndSortMatch[1]!),
             replySort: int.parse(replyDepthAndSortMatch[2]!));
