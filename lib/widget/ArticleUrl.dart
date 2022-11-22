@@ -31,4 +31,7 @@ class CauinArticleUrl {
 
   String get displayCategory =>
       CauinBoard.getDisplayName(_tableName, _innerCategory);
+
+  String get tableName => _tableName;
+  int get articleId => _id;
 }

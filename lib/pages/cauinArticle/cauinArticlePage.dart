@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:unofficial_cauin_app/cauin/cauinArticleBody.dart';
 import 'package:unofficial_cauin_app/cauin/cauinArticleItem.dart';
+import 'package:unofficial_cauin_app/pages/cauinArticle/cauinArticleAddComment.dart';
 import 'package:unofficial_cauin_app/pages/cauinArticle/cauinArticleComment.dart';
 import 'package:unofficial_cauin_app/pages/cauinArticle/cauinArticleTitle.dart';
 import 'package:unofficial_cauin_app/pages/cauinArticle/fixedSizeWebView.dart';
@@ -42,8 +43,9 @@ class CauinArticlePage extends StatelessWidget {
               else
                 ...ListTile.divideTiles(
                     context: context,
-                    tiles: _article.body!.comments.map(
-                        (comment) => CauinArticlePageComment(comment: comment)))
+                    tiles: _article.body!.comments.map((comment) =>
+                        CauinArticlePageComment(comment: comment))),
+              CauinArticleAddComment(article: _article)
             ]
           ])),
     );
